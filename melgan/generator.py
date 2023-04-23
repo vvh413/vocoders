@@ -1,5 +1,6 @@
 import torch
 from torch import nn
+
 from melgan.weight_norm_conv import Conv1dWN, ConvTranspose1dWN
 
 
@@ -54,8 +55,7 @@ class Generator(nn.Module):
             ]
 
             model += [
-                ResBlock(n_channels // 2, dilation=3 ** i)
-                for i in range(n_res_blocks)
+                ResBlock(n_channels // 2, dilation=3**i) for i in range(n_res_blocks)
             ]
 
             n_channels //= 2
