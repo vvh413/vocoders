@@ -1,7 +1,7 @@
 from typing import Any
 
 import torch
-from pandas.core.algorithms import inspect
+import inspect
 from torch import nn
 from torchaudio.transforms import MelSpectrogram
 
