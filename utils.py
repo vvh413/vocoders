@@ -1,7 +1,7 @@
+import inspect
 from typing import Any
 
 import torch
-import inspect
 from torch import nn
 from torchaudio.transforms import MelSpectrogram
 
