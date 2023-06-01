@@ -10,9 +10,7 @@ class DiscriminatorBlock(nn.Module):
         n_channels = ndf
         model: list[nn.Module] = [
             nn.Sequential(
-                Conv1dWN(
-                    1, n_channels, kernel_size=15, padding=7, padding_mode="reflect"
-                ),
+                Conv1dWN(1, n_channels, kernel_size=15, padding=7, padding_mode="reflect"),
                 nn.LeakyReLU(0.2),
             )
         ]
@@ -67,9 +65,7 @@ class DiscriminatorBlock(nn.Module):
 class Discriminator(nn.Module):
     def __init__(self, n_disc: int, ndf: int, n_layers: int, ratio: int):
         super().__init__()
-        self.model = nn.Sequential(
-            *[DiscriminatorBlock(ndf, n_layers, ratio) for _ in range(n_disc)]
-        )
+        self.model = nn.Sequential(*[DiscriminatorBlock(ndf, n_layers, ratio) for _ in range(n_disc)])
         self.avg = nn.AvgPool1d(4, stride=2, padding=1, count_include_pad=False)
 
     def forward(self, x: torch.Tensor) -> list[list[torch.Tensor]]:

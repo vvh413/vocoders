@@ -54,9 +54,7 @@ class Generator(nn.Module):
                 ),
             ]
 
-            model += [
-                ResBlock(n_channels // 2, dilation=3**i) for i in range(n_res_blocks)
-            ]
+            model += [ResBlock(n_channels // 2, dilation=3**i) for i in range(n_res_blocks)]
 
             n_channels //= 2
 
