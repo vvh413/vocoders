@@ -1,4 +1,4 @@
 # Vocoders
 
- * `medlgan/` - MelGAN model
+ * `melgan/` - MelGAN model
  * `waveglow/` - WaveGlow model
